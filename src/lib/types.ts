@@ -87,3 +87,32 @@ export type BpNote = {
 export type AiScene = "overview" | "line" | "project";
 export type AiResult = Record<string, string>;
 
+export type RuleSettings = {
+  matureRevenueDeclineWeeks: number;
+  matureProfitDeclineWeeks: number;
+  focusDeclineWeeks: number;
+  focusAchievementThreshold: number;
+  cumulativeWindowShort: number;
+  cumulativeWindowLong: number;
+};
+
+export type LifecycleBaseline = {
+  id: string;
+  line: string;
+  lifecycle: string;
+  retentionDay2?: number;
+  monthlyRetention?: number;
+  roiDay7?: number;
+  dau?: number;
+};
+
+export type DashboardSettings = {
+  id: "main";
+  rules: RuleSettings;
+  baselines: LifecycleBaseline[];
+  activeReceiptMonth: string;
+  receiptRates: Record<string, Record<string, number>>;
+  updatedBy: string;
+  changeNote: string;
+  updatedAt: string;
+};
